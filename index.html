@@ -1,0 +1,159 @@
+নিচে তোমার দেওয়া তথ্য অনুযায়ী একই ধরনের একটি Portfolio HTML বানিয়ে দিলাম। তুমি শুধু image ও PDF ফাইলগুলো একই ফোল্ডারে রাখবে (ripon.jpg, keventer.jpg ইত্যাদি)।
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ripon Sarkar | Portfolio</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="hero">
+    <img src="ripon.jpg" alt="Ripon Sarkar">
+    <h1>Ripon Sarkar</h1>
+    <p><span class="typing"></span></p>
+</header>
+
+<nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#technical">Technical</a>
+    <a href="#certificates">Certificates</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section id="about" class="fade">
+    <h2>About Me</h2>
+    <div class="card">
+        <p>
+            I am Ripon Sarkar, currently studying Diploma in Food Processing 
+            Technology at Malda Polytechnic College (4th Semester). 
+            My goal is to become a professional Food Processing Technologist 
+            and improve my technical skills continuously.
+        </p>
+    </div>
+</section>
+
+<section id="education" class="fade">
+    <h2>Education</h2>
+
+    <div class="card">
+        <h3>Diploma in Food Processing Technology</h3>
+        <p>Malda Polytechnic College</p>
+        <p>4th Semester</p>
+    </div>
+
+</section>
+
+<section id="technical" class="fade">
+    <h2>Technical Qualification</h2>
+
+    <div class="card">
+        <h3>Industrial Training</h3>
+        <p>Keventer</p>
+        <img src="keventer.jpg" alt="Training" style="width:100%; border-radius:10px;">
+    </div>
+
+</section>
+
+<section id="certificates" class="fade">
+    <h2>Certificates</h2>
+
+    <div class="card">
+        <h3>Keventer Training Certificate</h3>
+        <a href="keventer.jpg" class="btn" target="_blank">View Certificate</a>
+    </div>
+
+</section>
+
+<section id="contact" class="fade">
+    <h2>Contact</h2>
+
+    <div class="card">
+        <p>Email: <a href="mailto:riponsarkarfpt@gmail.com">riponsarkarfpt@gmail.com</a></p>
+        <p>Mobile: 8509658076</p>
+
+        <div class="social">
+            <a href="https://www.instagram.com/who_i_am_000.01?igsh=dWN5bnJ3cDEwZHBo" target="_blank">Instagram</a>
+            <a href="https://www.facebook.com/riponsarkar.riponsarkar.393" target="_blank">Facebook</a>
+        </div>
+    </div>
+
+</section>
+
+<footer>
+    <p>© 2026 Ripon Sarkar | All Rights Reserved</p>
+</footer>
+
+
+<!-- TYPING ANIMATION SCRIPT -->
+
+<script>
+
+const textArray = [
+"Future Food Technologist",
+"Diploma Student - Food Processing Technology",
+"Industrial Training Completed",
+"Passionate About Food Innovation"
+];
+
+let typingElement = document.querySelector(".typing");
+let textIndex = 0;
+let charIndex = 0;
+
+function typeEffect() {
+    if (charIndex < textArray[textIndex].length) {
+        typingElement.textContent += textArray[textIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeEffect, 80);
+    } 
+    else {
+        setTimeout(eraseEffect, 1500);
+    }
+}
+
+function eraseEffect() {
+    if (charIndex > 0) {
+        typingElement.textContent = textArray[textIndex].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(eraseEffect, 40);
+    } 
+    else {
+        textIndex++;
+        if (textIndex >= textArray.length) textIndex = 0;
+        setTimeout(typeEffect, 300);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(typeEffect, 500);
+});
+
+</script>
+
+
+<!-- SCROLL FADE ANIMATION -->
+
+<script>
+
+const faders = document.querySelectorAll(".fade");
+
+window.addEventListener("scroll", () => {
+    faders.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+            section.classList.add("show");
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
